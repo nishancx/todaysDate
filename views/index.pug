@@ -9,10 +9,12 @@ html(lang="en")
     meta(name="theme-color" content="#0f0f1e")
     meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
     link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap", rel="stylesheet")
-    link(rel="stylesheet", href="css/style.css")
+    link(rel="stylesheet", href="/css/style.css")
   body
     .Calendar
-      .Calendar__ad #{adDate.dayName}, #{adDate.day} #{adDate.monthName} #{adDate.year}
+      .Calendar__ad(data-day=adDate.day) #{adDate.dayName}, #{adDate.day} #{adDate.monthName} #{adDate.year}
       .Calendar__bs
         .Calendar__bs-day #{bsDate.day}
         .Calendar__bs-date #{bsDate.monthName} #{bsDate.year}
+
+    script(src='/js/scripts.js')

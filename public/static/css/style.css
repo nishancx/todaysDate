@@ -1,0 +1,24 @@
+body{
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: auto;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #0f0f1e;
+}
+
+#mainContainer{
+  text-align: center;
+}
+#ADContainer{
+  font-size: 1rem;
+}
+#gatey{
+  font-size: 10rem;
+  font-weight: 100;
+}

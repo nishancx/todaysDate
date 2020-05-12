@@ -1,38 +1,36 @@
 // the person who removes this sucks their own toes
-const {
-  toAD,
-  toBS
-} = require('@sbspk/bs');
 const path = require('path');
 const express = require('express');
+const { toBS } = require('@sbspk/bs');
 
-const monthNamesAD = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
+const bsMonths = [
+  "Baishakh", "Jestha", "Ashadh", "Shrawan", "Bhadra", "Ashwin",
+  "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"
 ];
-const monthNamesBS = ["Baishakh", "Jestha", "Asar", "Shrawan", "Bhadau", "Aswin",
-  "Kartik", "Mansir", "Poush", "Magh", "Falgun", "Chaitra"
-];
-
-let d = new Date();
-let currentDateAD = {
-  year: d.getFullYear(),
-  month: (d.getMonth() + 1),
-  day: d.getDate()
-};
-let currentDateBS = toBS(currentDateAD);
-currentDateAD.month = monthNamesAD[d.getMonth()];
-currentDateBS.month = monthNamesBS[(currentDateBS.month - 1)];
-
 
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '../views'));
-app.use(express.static(path.join(__dirname, '../public/static')));
-app.listen(8000);
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    currentDateAD,
-    currentDateBS
-  });
+  // get details in NPT
+  const format = (options)=> {
+    return new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Kathmandu', ...options }).format(new Date());
+  }
+
+  const adDate = {
+    year: Number.parseInt(format({ year: 'numeric'}), 10),
+    month: Number.parseInt(format({ month: 'numeric'}), 10),
+    day: Number.parseInt(format({ day: 'numeric'}), 10),
+    monthName: format({ month: 'long'}),
+    dayName: format({ weekday: 'short'}),
+  };
+
+  const bsDate = toBS(adDate);
+  bsDate.monthName = bsMonths[bsDate.month - 1],
+
+  res.render('index', { bsDate, adDate });
 });
+
+app.listen(8000);

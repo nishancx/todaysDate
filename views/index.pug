@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 html(lang="en")
   head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Date
-    link(rel="stylesheet", href="css/style.css")
+    title Nepali Date
+    link(rel="icon", href="/img/icon.png")
+    link(rel="apple-touch-icon", href="/img/icon.png")
+    link(rel="manifest", href="/manifest.webmanifest")
+    meta(name="viewport" content="width=device-width, user-scalable=no")
+    meta(name="theme-color" content="#0f0f1e")
+    meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
     link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap", rel="stylesheet")
+    link(rel="stylesheet", href="css/style.css")
   body
-    #mainContainer
-      #ADContainer
-        div= currentDateAD.day + ' ' + currentDateAD.month + ' ' + currentDateAD.year
-      #BSContainer
-        div#gatey= currentDateBS.day
-        div= currentDateBS.month + ' ' + currentDateBS.year 
-    script(src="js/script.js")
+    .Calendar
+      .Calendar__ad #{adDate.dayName}, #{adDate.day} #{adDate.monthName} #{adDate.year}
+      .Calendar__bs
+        .Calendar__bs-day #{bsDate.day}
+        .Calendar__bs-date #{bsDate.monthName} #{bsDate.year}

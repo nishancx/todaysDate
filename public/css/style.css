@@ -1,24 +1,30 @@
-body{
+html {
+  background: #0f0f1e;
+}
+
+body {
   margin: 0;
+  padding: 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
+  font-size: 4vmax;
   display: grid;
   grid-template-columns: auto;
-  height: 100vh;
+  height: 85vh;
   overflow: hidden;
   justify-content: center;
   align-items: center;
   color: #fff;
-  background: #0f0f1e;
 }
 
-#mainContainer{
+.Calendar {
   text-align: center;
 }
-#ADContainer{
-  font-size: 1rem;
+
+.Calendar__ad {
+  font-size: 2vmax;
 }
-#gatey{
-  font-size: 10rem;
+
+.Calendar__bs-day {
+  font-size: 20vmax;
   font-weight: 100;
 }

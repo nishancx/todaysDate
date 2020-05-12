@@ -1,23 +1,16 @@
 {
-  "name": "todaysdate",
+  "name": "today",
   "version": "1.0.0",
-  "description": "Displays current date in Bikram Sambat and AD",
-  "main": "src/server.js",
+  "private": true,
+  "description": "Display Today's Date",
   "scripts": {
-    "test": "nodemon src/server"
+    "test": "nodemon src/server.js",
+    "start": "forever src/server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nishancx/todaysDate.git"
   },
-  "keywords": [
-    "Date",
-    "display",
-    "BS",
-    "AD",
-    "Bikram",
-    "Sambat"
-  ],
   "author": "Nishan Chhetri",
   "license": "ISC",
   "bugs": {
@@ -30,6 +23,7 @@
   "dependencies": {
     "@sbspk/bs": "^1.0.0",
     "express": "^4.17.1",
+    "forever": "^2.0.0",
     "pug": "^2.0.4"
   }
 }
